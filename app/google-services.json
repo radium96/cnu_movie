@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "219614702937",
+    "project_id": "cnu-movie",
+    "storage_bucket": "cnu-movie.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219614702937:android:97e45dc7f8495d4379f048",
+        "android_client_info": {
+          "package_name": "com.naca.database_termproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219614702937-jgbqi13athdaqbvhbvf20bmqduu1dmdh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCD5Ohra0jMwbzurC9XGW8nxvBox3GZ0fU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219614702937-jgbqi13athdaqbvhbvf20bmqduu1dmdh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

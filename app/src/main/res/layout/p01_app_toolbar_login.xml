@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".p02.UnivSelectActivity">
+
+    <data class="LoginToolbarBinding">
+
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar_01"
+                android:layout_width="match_parent"
+                android:layout_height="?actionBarSize"
+                android:background="@color/toolbar"
+                android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="학교 설정"
+                    android:textColor="@color/white"
+                    android:textSize="21dp"
+                    android:textStyle="bold"
+                    android:layout_gravity="center"
+                    android:id="@+id/toolbar_title" />
+
+            </androidx.appcompat.widget.Toolbar>
+
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <include
+            android:id="@+id/p1_content"
+            layout="@layout/p01_content_login"/>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

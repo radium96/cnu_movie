@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="ScheduleContentBinding">
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"
+        tools:showIn="@layout/p08_app_toolbar_schedule">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:weightSum="2"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:padding="30dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="이름"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/schedule_name"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="이름"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:padding="30dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="상영관"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/schedule_theater"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="이름"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:padding="30dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="상영일"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/schedule_date"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="이름"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:padding="30dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="상영시간"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/schedule_time"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="이름"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="3"
+                android:padding="30dp">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:text="좌석수"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+                <TextView
+                    android:id="@+id/schedule_seat"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="2"
+                    android:text="이름"
+                    android:textColor="@color/text"
+                    android:textSize="25dp"/>
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/reservation"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/p2_button"
+                android:text="예매하기"
+                android:textSize="40dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:layout_marginHorizontal="80dp"
+                android:layout_marginVertical="60dp"/>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
