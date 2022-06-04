@@ -14,10 +14,11 @@
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:showIn="@layout/p07_app_toolbar_reserve">
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recy_ticket"
+            android:id="@+id/recy_schedule"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:padding="30dp"/>
+            android:layout_margin="30dp"
+            android:background="@drawable/p4_list"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

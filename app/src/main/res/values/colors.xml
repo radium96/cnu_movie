@@ -12,4 +12,5 @@
     <color name="text">#FF3F4346</color>
     <color name="hint">#FFACAAAB</color>
     <color name="button">#FFA0CBFE</color>
+    <color name="status">#FF00176B</color>
 </resources>
