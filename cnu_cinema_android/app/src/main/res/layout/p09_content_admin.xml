@@ -5,7 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data class="AdminContentBinding">
-
+        <variable
+            name="query"
+            type="String" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -24,67 +26,87 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/type"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="출력값 (영화이름/고객이름/횟수)"
-                android:textSize="18dp"
-                android:importantForAutofill="no" />
+                android:orientation="horizontal">
 
-            <EditText
-                android:id="@+id/sex"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="성별 (M/W)"
-                android:textSize="18dp"
-                android:importantForAutofill="no" />
+                <TextView
+                    android:id="@+id/ticket_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/p1_button"
+                    android:layout_weight="1"
+                    android:text="관람기록"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="5dp"/>
 
-            <EditText
-                android:id="@+id/title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="영화제목"
-                android:textSize="18dp"
-                android:importantForAutofill="no" />
+                <TextView
+                    android:id="@+id/join_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/p1_button"
+                    android:layout_weight="1"
+                    android:text="JOIN"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="5dp"/>
 
-            <EditText
-                android:id="@+id/order"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="정렬기준 (횟수/이름)"
-                android:textSize="18dp"
-                android:importantForAutofill="no" />
+                <TextView
+                    android:id="@+id/group_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/p1_button"
+                    android:layout_weight="1"
+                    android:text="GROUP"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="5dp"/>
 
-            <EditText
-                android:id="@+id/ordering"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="정렬방식 (오름차순/내림차순)"
-                android:textSize="18dp"
-                android:importantForAutofill="no" />
+                <TextView
+                    android:id="@+id/window_button"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/p1_button"
+                    android:layout_weight="1"
+                    android:text="WINDOW"
+                    android:textSize="15dp"
+                    android:textColor="@color/black"
+                    android:gravity="center"
+                    android:paddingVertical="10dp"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="5dp"/>
 
-            <EditText
-                android:id="@+id/ranked"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="text"
-                android:hint="순위할당여부 (Y)"
-                android:textSize="18dp"
-                android:importantForAutofill="no" />
+            </LinearLayout>
 
             <TextView
+                android:id="@+id/query"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{query}"
+                android:textSize="15dp"
+                android:background="@drawable/p4_list"
+                android:textColor="@color/black"
+                android:visibility="gone"
+                android:padding="3dp"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recy_admin"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:text="sesese"
-                android:textColor="@color/text"
-                android:textSize="20dp"
-                android:background="@drawable/p4_list"/>
+                android:padding="3dp"
+                android:background="@drawable/p4_list"
+                />
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>

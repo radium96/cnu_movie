@@ -43,7 +43,7 @@ public class BookingActivity extends AppCompatActivity {
 
         Intent intent = getIntent();
         movie = (Movie) intent.getSerializableExtra("select");
-        c.setTimeZone(TimeZone.getTimeZone("Asia/Seoul"));
+        c.setTimeZone(TimeZone.getTimeZone("Pacific/Honolulu"));
         loadSchedule();
 
         RecyclerView scheduleList = binding.toolbar07.p7Content.recySchedule;
@@ -63,8 +63,23 @@ public class BookingActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        Log.d("ONRESTART", "1");
+        schedules.clear();
+        loadSchedule();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("ONRESUME", "1");
+    }
+
     void loadSchedule(){
         try{
+            c.add(Calendar.HOUR, 9);
             Date d = c.getTime();
             @SuppressLint("SimpleDateFormat") SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             Log.d("DATE", form.format(d));
@@ -78,10 +93,12 @@ public class BookingActivity extends AppCompatActivity {
             for (int i = 0;i<ja.length();i++){
                 JSONObject jo = ja.getJSONObject(i);
                 schedules.add(new Schedule(jo.getString("sdatetime"), jo.getString("tname"), jo.getString("seats"),
-                        movie.getMid(), jo.getString("sid"), movie.getTitle()));
+                        jo.getString("disable"), movie.getMid(), jo.getString("sid"), movie.getTitle()));
+                Log.d("SCHEDULE", schedules.getLast().toString());
             }
         } catch (Exception e){
             e.printStackTrace();
         }
     }
+
 }

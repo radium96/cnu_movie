@@ -1,13 +1,13 @@
-package com.naca.cnu_cinema;
+package com.naca.cnu_cinema_server;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ServerApplication {
+public class CnuCinemaServerApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(DemoApplication.class, args);
+		SpringApplication.run(CnuCinemaServerApplication.class, args);
 	}
 
 }

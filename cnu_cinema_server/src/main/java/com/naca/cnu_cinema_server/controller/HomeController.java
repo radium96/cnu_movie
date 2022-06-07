@@ -1,10 +1,11 @@
-package com.naca.cnu_cinema.controller;
+package com.naca.cnu_cinema_server.controller;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import java.sql.Connection;
@@ -14,22 +15,6 @@ import java.sql.Statement;
 
 @Controller
 public class HomeController {
-
-//    @PostMapping(value = "android")
-//    @ResponseBody
-//    public String androidResponse(@RequestBody User user){
-//        System.out.println("Connection from Android");
-//        System.out.println("id: " + user.getId() + ", pw: " + user.getPw());
-//
-//        return "1";
-//    }
-
-    //    @RequestMapping("/")
-//    public String index(){
-//        System.out.println("index");
-//        return "null";
-//    }
-//
 
     @RequestMapping(value = "login", method = {RequestMethod.POST})
     public String loginPage(HttpServletRequest request, Model model){
@@ -118,6 +103,7 @@ public class HomeController {
                 jo.put("id", rset.getString("ID"));
                 jo.put("seat", rset.getString("SEATS"));
                 jo.put("status", rset.getString("STATUS"));
+                jo.put("rcdate", rset.getString("RC_DATE"));
                 temp = temp_stmt.executeQuery("SELECT SDATETIME, TNAME, MID FROM MOVIE_SCHEDULE WHERE SID = " +
                         rset.getString("SID"));
                 if(temp.next()){
@@ -128,6 +114,10 @@ public class HomeController {
                     if (tmp.next()){
                         jo.put("title", tmp.getString("title"));
                     }
+                    tmp.close();
+                    tmp = temp_stmt.executeQuery("SELECT NAME FROM CUSTOMER WHERE CID = " + rset.getString("CID"));
+                    tmp.next();
+                    jo.put("cname", tmp.getString("NAME"));
                 }
                 ja.put(jo);
             }
@@ -225,18 +215,151 @@ public class HomeController {
                 ResultSet temp;
                 jo.put("sdatetime", rset.getString("sdatetime"));
                 String tname = rset.getString("TNAME");
+                String sid = rset.getString("SID");
                 jo.put("tname", tname);
                 temp = temp_stmt.executeQuery("SELECT SEATS FROM THEATER WHERE TNAME = '" +
                         tname + "'");
-                if(temp.next()){
+                Statement tmp_stmt = con.createStatement();
+                ResultSet tmp;
+                tmp = tmp_stmt.executeQuery("SELECT COUNT(CASE WHEN T.SID = " + sid + " THEN 1 END) CNT FROM TICKETING T WHERE T.STATUS = 'R'");
+                if(temp.next() && tmp.next()){
                     jo.put("seats", temp.getString("SEATS"));
+                    jo.put("disable", tmp.getString("CNT"));
                 }
-                jo.put("sid", rset.getString("SID"));
+                jo.put("sid", sid);
                 ja.put(jo);
             }
             model.addAttribute("schedule", ja);
 
             return "schedule";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "null";
+        }
+    }
+
+    @RequestMapping(value = "seats", method = {RequestMethod.POST})
+    public String seatsPage(HttpServletRequest request, Model model){
+        System.out.println("안드로이드에서 접속요청");
+        Statement stmt;
+        ResultSet rset;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String query = request.getParameter("query");
+            System.out.println("query : " + query);
+            Connection con =
+                    DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",
+                            "d201802062",
+                            "1234");
+            stmt = con.createStatement();
+            rset = stmt.executeQuery(query);
+            JSONArray ja = new JSONArray();
+            while(rset.next()){
+                JSONObject jo = new JSONObject();
+                jo.put("seats", rset.getString("SEATS"));
+                ja.put(jo);
+            }
+            model.addAttribute("seats", ja);
+
+            return "seats";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "null";
+        }
+    }
+
+    @RequestMapping(value = "join", method = {RequestMethod.POST})
+    public String joinPage(HttpServletRequest request, Model model){
+        System.out.println("안드로이드에서 접속요청");
+        Statement stmt;
+        ResultSet rset;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String query = request.getParameter("query");
+            System.out.println("query : " + query);
+            Connection con =
+                    DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",
+                            "d201802062",
+                            "1234");
+            stmt = con.createStatement();
+            rset = stmt.executeQuery(query);
+            JSONArray ja = new JSONArray();
+            while (rset.next()){
+                JSONObject jo = new JSONObject();
+                jo.put("예약자 이름", rset.getString("예약자 이름"));
+                jo.put("예약자 성", rset.getString("예약자 성"));
+                jo.put("예약자 id", rset.getString("예약자 id"));
+                jo.put("티켓 id", rset.getString("티켓 id"));
+                jo.put("티켓 상태", rset.getString("티켓 상태"));
+                ja.put(jo);
+            }
+            model.addAttribute("join", ja);
+
+            return "join";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "null";
+        }
+    }
+
+    @RequestMapping(value = "group", method = {RequestMethod.POST})
+    public String groupPage(HttpServletRequest request, Model model){
+        System.out.println("안드로이드에서 접속요청");
+        Statement stmt;
+        ResultSet rset;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String query = request.getParameter("query");
+            System.out.println("query : " + query);
+            Connection con =
+                    DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",
+                            "d201802062",
+                            "1234");
+            stmt = con.createStatement();
+            rset = stmt.executeQuery(query);
+            JSONArray ja = new JSONArray();
+            while (rset.next()){
+                JSONObject jo = new JSONObject();
+                jo.put("일정 id", rset.getString("일정 id"));
+                jo.put("예약자 이름", rset.getString("예약자 이름"));
+                jo.put("cnt", rset.getString("예약 횟수"));
+                ja.put(jo);
+            }
+            model.addAttribute("group", ja);
+
+            return "group";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "null";
+        }
+    }
+
+    @RequestMapping(value = "window", method = {RequestMethod.POST})
+    public String windowPage(HttpServletRequest request, Model model){
+        System.out.println("안드로이드에서 접속요청");
+        Statement stmt;
+        ResultSet rset;
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String query = request.getParameter("query");
+            System.out.println("query : " + query);
+            Connection con =
+                    DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",
+                            "d201802062",
+                            "1234");
+            stmt = con.createStatement();
+            rset = stmt.executeQuery(query);
+            JSONArray ja = new JSONArray();
+            while (rset.next()){
+                JSONObject jo = new JSONObject();
+                jo.put("고객 id", rset.getString("고객 id"));
+                jo.put("예약 횟수", rset.getString("예약 횟수"));
+                jo.put("예약 횟수 순위", rset.getString("예약 횟수 순위"));
+                ja.put(jo);
+            }
+            model.addAttribute("window", ja);
+
+            return "window";
         } catch (Exception e){
             e.printStackTrace();
             return "null";

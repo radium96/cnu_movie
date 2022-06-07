@@ -7,16 +7,18 @@ public class Schedule implements Serializable {
     String stime;
     String tname;
     String seats;
+    String disable;
     String mid;
     String sid;
     String title;
 
-    public Schedule(String sdatetime, String tname, String seats, String mid, String sid, String title) {
+    public Schedule(String sdatetime, String tname, String seats, String disable,String mid, String sid, String title) {
         String[] str = sdatetime.split(" ");
         this.sdate = str[0];
         this.stime = str[1];
         this.tname = tname;
         this.seats = seats;
+        this.disable = disable;
         this.mid = mid;
         this.sid = sid;
         this.title = title;
@@ -54,6 +56,14 @@ public class Schedule implements Serializable {
         this.seats = seats;
     }
 
+    public String getDisable() {
+        return disable;
+    }
+
+    public void setDisable(String disable) {
+        this.disable = disable;
+    }
+
     public String getMid() {
         return mid;
     }
@@ -76,5 +86,19 @@ public class Schedule implements Serializable {
 
     public void setTitle(String title) {
         this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Schedule{" +
+                "sdate='" + sdate + '\'' +
+                ", stime='" + stime + '\'' +
+                ", tname='" + tname + '\'' +
+                ", seats='" + seats + '\'' +
+                ", disable='" + disable + '\'' +
+                ", mid='" + mid + '\'' +
+                ", sid='" + sid + '\'' +
+                ", title='" + title + '\'' +
+                '}';
     }
 }

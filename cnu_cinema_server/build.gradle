@@ -4,7 +4,7 @@ plugins {
 	id 'java'
 }
 
-group = 'com.example'
+group = 'com.naca'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -22,6 +22,7 @@ dependencies {
 
 	implementation 'javax.servlet:jstl:1.2'
 	implementation 'org.json:json:20220320'
+	implementation 'javax.mail:mail:1.4.7'
 
 
 }

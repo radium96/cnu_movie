@@ -13,4 +13,6 @@
     <color name="hint">#FFACAAAB</color>
     <color name="button">#FFA0CBFE</color>
     <color name="status">#FF00176B</color>
+    <color name="hover">#FFFDD100</color>
+    <color name="buttondisable">#FFACAAAB</color>
 </resources>

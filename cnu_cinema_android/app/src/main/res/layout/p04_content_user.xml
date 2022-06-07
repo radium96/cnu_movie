@@ -30,7 +30,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:padding="30dp">
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -56,7 +57,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:padding="30dp">
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -82,7 +84,8 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:weightSum="3"
-                android:padding="30dp">
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp">
 
                 <TextView
                     android:layout_width="0dp"
@@ -103,12 +106,59 @@
 
             </LinearLayout>
 
+            <EditText
+                android:id="@+id/status"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="출력 기준"
+                android:textSize="18dp"
+                android:importantForAutofill="no"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:id="@+id/start_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="시작일(YYYY/MM/DD)"
+                android:textSize="18dp"
+                android:importantForAutofill="no"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"/>
+
+            <EditText
+                android:id="@+id/end_date"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="종료일(YYYY/MM/DD)"
+                android:textSize="18dp"
+                android:importantForAutofill="no"
+                android:paddingVertical="10dp"
+                android:paddingHorizontal="30dp"/>
+
+            <TextView
+                android:id="@+id/search_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/p1_button"
+                android:text="검색"
+                android:textSize="20dp"
+                android:textColor="@color/black"
+                android:gravity="center"
+                android:paddingVertical="10dp"
+                android:layout_marginVertical="10dp"
+                android:layout_marginHorizontal="30dp"/>
+
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recy_booking"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="30dp"
+                android:layout_marginHorizontal="30dp"
                 android:padding="3dp"
+                android:layout_marginBottom="30dp"
                 android:background="@drawable/p4_list"/>
 
         </LinearLayout>
