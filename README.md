@@ -1,1 +1,1 @@
-"# cnu_movie" 
+"# cnu_cinema_201802062"

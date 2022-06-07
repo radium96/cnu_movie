@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.naca.database_termproject">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.DataBase_TermProject">
+        <activity android:name=".p01.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".p02.SignupActivity">
+        </activity>
+        <activity android:name=".p03.HomeActivity">
+        </activity>
+        <activity android:name=".p04.UserActivity">
+        </activity>
+        <activity android:name=".p05.SearchActivity">
+        </activity>
+        <activity android:name=".p06.MovieActivity">
+        </activity>
+        <activity android:name=".p07.BookingActivity">
+        </activity>
+        <activity android:name=".p08.ScheduleActivity">
+        </activity>
+        <activity android:name=".p09.AdminActivity">
+        </activity>
+    </application>
+
+</manifest>

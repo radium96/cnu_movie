@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data class="TicketingElementBinding">
+        <variable
+            name="ticket"
+            type="com.naca.database_termproject.data.Ticket" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@{ticket.title}"
+            android:textColor="@color/text"
+            android:textSize="18dp"
+            android:background="@color/white"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="상영관"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="2"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.tname}"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="5"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="상영일"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="2"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.sdate}"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="5"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="상영시간"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="2"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.stime}"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="5"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="좌석"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="2"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.seat}"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="5"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:weightSum="7"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="상태"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="2"
+                android:background="@color/white"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:text="@{ticket.status}"
+                android:textColor="@color/text"
+                android:textSize="18dp"
+                android:layout_weight="5"
+                android:background="@color/white"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/toolbar"/>
+
+    </LinearLayout>
+</layout>
