@@ -1,5 +1,6 @@
 package com.naca.cnu_cinema_server.controller;
 
+import com.naca.cnu_cinema_server.MailSending;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.stereotype.Controller;
@@ -14,7 +15,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 
 @Controller
-public class HomeController {
+public class AndroidController {
 
     @RequestMapping(value = "login", method = {RequestMethod.POST})
     public String loginPage(HttpServletRequest request, Model model){
@@ -22,9 +23,9 @@ public class HomeController {
         Statement stmt;
         ResultSet rset;
         try {
-            Class.forName("oracle.jdbc.driver.OracleDriver");
             String query = request.getParameter("query");
             System.out.println("query : " + query);
+            Class.forName("oracle.jdbc.driver.OracleDriver");
             Connection con =
                     DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:XE",
                             "d201802062",
@@ -39,6 +40,8 @@ public class HomeController {
             } else {
                 model.addAttribute("login", "");
             }
+            rset.close();
+            stmt.close();
 
             return "login";
         } catch (Exception e){
@@ -62,7 +65,6 @@ public class HomeController {
                             "1234");
             stmt = con.createStatement();
             rset = stmt.executeQuery(query);
-            String str;
             JSONObject jo = new JSONObject();
             while(rset.next()){
                 jo.put("name", rset.getString("NAME"));
@@ -71,6 +73,9 @@ public class HomeController {
                 jo.put("sex", rset.getString("SEX"));
             }
             model.addAttribute("user", jo);
+
+            rset.close();
+            stmt.close();
 
             return "user";
         } catch (Exception e){
@@ -118,9 +123,15 @@ public class HomeController {
                     tmp = temp_stmt.executeQuery("SELECT NAME FROM CUSTOMER WHERE CID = " + rset.getString("CID"));
                     tmp.next();
                     jo.put("cname", tmp.getString("NAME"));
+                    tmp.close();
                 }
+                temp.close();
+                temp_stmt.close();
                 ja.put(jo);
             }
+
+            rset.close();
+            stmt.close();
             model.addAttribute("userticket", ja);
 
             return "userticket";
@@ -156,6 +167,8 @@ public class HomeController {
                 jo.put("length", rset.getString("LENGTH"));
                 ja.put(jo);
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("movie", ja);
 
             return "movie";
@@ -184,6 +197,8 @@ public class HomeController {
             if (rset.next()){
                 str = rset.getString("cnt1") + " " + rset.getString("cnt2");
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("moviedetail", str);
 
             return "moviedetail";
@@ -229,6 +244,8 @@ public class HomeController {
                 jo.put("sid", sid);
                 ja.put(jo);
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("schedule", ja);
 
             return "schedule";
@@ -259,6 +276,8 @@ public class HomeController {
                 jo.put("seats", rset.getString("SEATS"));
                 ja.put(jo);
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("seats", ja);
 
             return "seats";
@@ -293,6 +312,8 @@ public class HomeController {
                 jo.put("티켓 상태", rset.getString("티켓 상태"));
                 ja.put(jo);
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("join", ja);
 
             return "join";
@@ -325,6 +346,8 @@ public class HomeController {
                 jo.put("cnt", rset.getString("예약 횟수"));
                 ja.put(jo);
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("group", ja);
 
             return "group";
@@ -357,6 +380,8 @@ public class HomeController {
                 jo.put("예약 횟수 순위", rset.getString("예약 횟수 순위"));
                 ja.put(jo);
             }
+            rset.close();
+            stmt.close();
             model.addAttribute("window", ja);
 
             return "window";
@@ -385,8 +410,32 @@ public class HomeController {
             } else {
                 model.addAttribute("update", "fail");
             }
+            stmt.close();
 
             return "update";
+        } catch (Exception e){
+            e.printStackTrace();
+            return "null";
+        }
+    }
+
+    @RequestMapping(value = "ticketing", method = {RequestMethod.POST})
+    public String ticketingPage(HttpServletRequest request, Model model){
+        System.out.println("안드로이드에서 접속요청");
+        try {
+            Class.forName("oracle.jdbc.driver.OracleDriver");
+            String to = request.getParameter("to");
+            String title = request.getParameter("title");
+            String content = request.getParameter("content");
+            System.out.println("to : " + to);
+            System.out.println("title : " + title);
+            System.out.println("content : " + content);
+
+            MailSending mailSending = new MailSending();
+            mailSending.sendEmail(to, title, content);
+            model.addAttribute("ticketing", "success");
+
+            return "ticketing";
         } catch (Exception e){
             e.printStackTrace();
             return "null";

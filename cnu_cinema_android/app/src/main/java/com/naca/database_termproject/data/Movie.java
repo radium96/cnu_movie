@@ -3,13 +3,14 @@ package com.naca.database_termproject.data;
 import java.io.Serializable;
 import java.util.Date;
 
+// 영화의 정보를 저장하는 Model.
 public class Movie implements Serializable {
-    String mid;
-    String title;
-    String openDay;
-    String director;
-    String rating;
-    String length;
+    String mid; // 데이터베이스상 영화의 id값
+    String title; // 영화의 제목
+    String openDay; // 영화 개봉일
+    String director; // 영화 감독 이름
+    String rating; // 영화 관람 가능 연령대
+    String length; // 영화 상영 길이
 
     public Movie(){
 

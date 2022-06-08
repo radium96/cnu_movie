@@ -1,15 +1,16 @@
 package com.naca.database_termproject.data;
 
+// 예매 정보를 저장하는 Model.
 public class Ticket {
-    String id;
-    String title;
-    String tname;
-    String sdate;
-    String stime;
-    String seat;
-    String status;
-    String rcdate;
-    String cname;
+    String id; // 데이터베이스상 예매 정보의 id
+    String title; // 예매한 영화의 제목
+    String tname; // 예매한 스케쥴의 상영관
+    String sdate; // 예매한 스케쥴의 상영일
+    String stime; // 예매한 스케쥴의 상영시간
+    String seat; // 예매한 스케쥴의 좌석
+    String status; // 예매 상태
+    String rcdate; // 예매 상태 최종갱신 날짜
+    String cname; // 예매한 스케쥴의 상영일
 
     public Ticket(String id, String title, String tname, String sdatetime, String seat, String status, String rcdate, String cname){
         this.id = id;

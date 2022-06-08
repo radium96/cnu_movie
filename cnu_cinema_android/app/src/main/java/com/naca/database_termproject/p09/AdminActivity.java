@@ -13,10 +13,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.naca.database_termproject.BR;
 import com.naca.database_termproject.R;
-import com.naca.database_termproject.Task;
+import com.naca.database_termproject.task.QueryTask;
 import com.naca.database_termproject.data.Ticket;
 import com.naca.database_termproject.databinding.AdminActivityBinding;
-import com.naca.database_termproject.databinding.ScheduleActivityBinding;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -73,7 +72,7 @@ public class AdminActivity extends AppCompatActivity {
         tickets.clear();
         try {
             String query = "SELECT * FROM TICKETING ORDER BY CID ASC";
-            Task task = new Task("userticket");
+            QueryTask task = new QueryTask("userticket");
             String result = task.execute(query).get();
             Log.d("RESULT: ", result);
             JSONArray ja = new JSONArray(result);
@@ -101,7 +100,7 @@ public class AdminActivity extends AppCompatActivity {
                     "on C.cid = t.cid\n" +
                     "order by C.cid";
             bind(query);
-            Task task = new Task("join");
+            QueryTask task = new QueryTask("join");
             String result = task.execute(query).get();
             Log.d("RESULT: ", result);
             JSONArray ja = new JSONArray(result);
@@ -124,7 +123,7 @@ public class AdminActivity extends AppCompatActivity {
                     "where T.cid = C.cid\n" +
                     "group by rollup (sid, name)";
             bind(query);
-            Task task = new Task("group");
+            QueryTask task = new QueryTask("group");
             String result = task.execute(query).get();
             Log.d("RESULT: ", result);
             JSONArray ja = new JSONArray(result);
@@ -145,7 +144,7 @@ public class AdminActivity extends AppCompatActivity {
                     "from ticketing\n" +
                     "group by cid";
             bind(query);
-            Task task = new Task("window");
+            QueryTask task = new QueryTask("window");
             String result = task.execute(query).get();
             Log.d("RESULT: ", result);
             JSONArray ja = new JSONArray(result);

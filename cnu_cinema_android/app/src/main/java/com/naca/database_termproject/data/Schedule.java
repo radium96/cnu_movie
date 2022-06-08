@@ -2,15 +2,16 @@ package com.naca.database_termproject.data;
 
 import java.io.Serializable;
 
+// 영화 상영 스케쥴의 정보를 저장하는 Model.
 public class Schedule implements Serializable {
-    String sdate;
-    String stime;
-    String tname;
-    String seats;
-    String disable;
-    String mid;
-    String sid;
-    String title;
+    String sdate; // 스케쥴 날짜
+    String stime; // 스케쥴 시간
+    String tname; // 상영관 이름
+    String seats; // 상영관의 전체 좌석 수
+    String disable; // 스케쥴에서 이미 예약되어있는 좌석의 수
+    String mid; // 스케쥴에서 상영하는 영화의 id
+    String sid; // 데이터베이스상 스케쥴의 id
+    String title; // 영화의 제목
 
     public Schedule(String sdatetime, String tname, String seats, String disable,String mid, String sid, String title) {
         String[] str = sdatetime.split(" ");

@@ -26,7 +26,7 @@
         </activity>
         <activity android:name=".p06.MovieActivity">
         </activity>
-        <activity android:name=".p07.BookingActivity">
+        <activity android:name=".p07.ReserveActivity">
         </activity>
         <activity android:name=".p08.ScheduleActivity">
         </activity>

@@ -39,7 +39,7 @@
                     android:layout_weight="1"
                     android:text="이름"
                     android:textColor="@color/text"
-                    android:textSize="25dp"/>
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:id="@+id/user_name"
@@ -48,7 +48,7 @@
                     android:layout_weight="2"
                     android:text="@{user.name}"
                     android:textColor="@color/text"
-                    android:textSize="25dp"/>
+                    android:textSize="18dp"/>
 
             </LinearLayout>
 
@@ -66,7 +66,7 @@
                     android:layout_weight="1"
                     android:text="이메일"
                     android:textColor="@color/text"
-                    android:textSize="25dp"/>
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:id="@+id/user_email"
@@ -75,7 +75,7 @@
                     android:layout_weight="2"
                     android:text="@{user.email}"
                     android:textColor="@color/text"
-                    android:textSize="25dp"/>
+                    android:textSize="18dp"/>
 
             </LinearLayout>
 
@@ -93,7 +93,7 @@
                     android:layout_weight="1"
                     android:text="성별"
                     android:textColor="@color/text"
-                    android:textSize="25dp"/>
+                    android:textSize="18dp"/>
 
                 <TextView
                     android:id="@+id/user_sex"
@@ -102,7 +102,7 @@
                     android:layout_weight="2"
                     android:text="@{user.sex}"
                     android:textColor="@color/text"
-                    android:textSize="25dp"/>
+                    android:textSize="18dp"/>
 
             </LinearLayout>
 
@@ -145,11 +145,11 @@
                 android:layout_height="wrap_content"
                 android:background="@drawable/p1_button"
                 android:text="검색"
-                android:textSize="20dp"
+                android:textSize="18dp"
                 android:textColor="@color/black"
                 android:gravity="center"
                 android:paddingVertical="10dp"
-                android:layout_marginVertical="10dp"
+                android:layout_marginVertical="8dp"
                 android:layout_marginHorizontal="30dp"/>
 
             <androidx.recyclerview.widget.RecyclerView

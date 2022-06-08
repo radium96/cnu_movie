@@ -1,24 +1,19 @@
-package com.naca.database_termproject;
+package com.naca.database_termproject.task;
 
 import android.os.AsyncTask;
-import android.os.Handler;
 import android.util.Log;
 
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
 
-public class Task extends AsyncTask<String, Integer, String> {
+public class EmailTask extends AsyncTask<String, Integer, String> {
     String sendMsg, receiveMsg;
     String endPoint;
 
-    public Task(String endPoint) {
+    public EmailTask(String endPoint) {
         this.endPoint = endPoint;
     }
 
@@ -27,7 +22,7 @@ public class Task extends AsyncTask<String, Integer, String> {
     protected String doInBackground(String... strings) {
         try {
             String str;
-            URL url = new URL("https://bc40-122-34-166-172.jp.ngrok.io/"+endPoint);  // 어떤 서버에 요청할지(localhost 안됨.)
+            URL url = new URL("https://f28d-122-34-166-172.jp.ngrok.io/"+endPoint);  // 어떤 서버에 요청할지(localhost 안됨.)
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
             conn.setRequestMethod("POST");                              //데이터를 POST 방식으로 전송합니다.
@@ -35,7 +30,7 @@ public class Task extends AsyncTask<String, Integer, String> {
 
             // 서버에 보낼 값 포함해 요청함.
             OutputStreamWriter osw = new OutputStreamWriter(conn.getOutputStream());
-            sendMsg = "query=" + strings[0]; // GET방식으로 작성해 POST로 보냄
+            sendMsg = "to=" + strings[0] + "&title=" + strings[1] + "&content=" + strings[2]; // GET방식으로 작성해 POST로 보냄
             osw.write(sendMsg);                           // OutputStreamWriter에 담아 전송
             osw.flush();
 
