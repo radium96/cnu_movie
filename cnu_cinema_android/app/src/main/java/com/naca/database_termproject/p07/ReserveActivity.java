@@ -26,7 +26,6 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.LinkedList;
-import java.util.TimeZone;
 
 public class ReserveActivity extends AppCompatActivity {
 
@@ -80,7 +79,6 @@ public class ReserveActivity extends AppCompatActivity {
         try{
             // 현재 시각을 저장하여 Date객체에 저장한다.
             Calendar c = Calendar.getInstance();
-            c.add(Calendar.HOUR, 9);
             Date d = c.getTime();
             // Date객체에 저장된 시간을 일정한 포맷으로 출력되도록하는 SimpleDateFormat을 선언하고 포맷을 설정한다.
             @SuppressLint("SimpleDateFormat") SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm");

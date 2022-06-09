@@ -114,12 +114,11 @@ public class SearchActivity extends AppCompatActivity {
         try{
             // 현재 시각을 저장하여 Date객체에 저장한다.
             Calendar c = Calendar.getInstance();
-            c.add(Calendar.HOUR, 9);
             Date d = c.getTime();
             // Date객체에 저장된 시간을 일정한 포맷으로 출력되도록하는 SimpleDateFormat을 선언하고 포맷을 설정한다.
             @SuppressLint("SimpleDateFormat") SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd HH:mm");
             // 모든 영화의 정보를 받아오는 쿼리를 작성한다.
-            String query = "SELECT * FROM MOVIE TO_DATE('" + form.format(d) + "', 'YYYY-MM-DD HH24:MI') ORDER BY OPEN_DAY";
+            String query = "SELECT * FROM MOVIE WHERE OPEN_DAY > TO_DATE('" + form.format(d) + "', 'YYYY-MM-DD HH24:MI') - 10 ORDER BY OPEN_DAY";
             // 쿼리를 전달할 QueryTask를 생성하고 movie로 접속한다.
             QueryTask task = new QueryTask("movie");
             // task에 query를 값으로 넣고 결과값을 result에 저장한다.

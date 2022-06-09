@@ -133,7 +133,6 @@ public class UserActivity extends AppCompatActivity {
                 if(t.getStatus().equals("예매 완료")){
                     // 현재 시각을 저장하여 Date객체에 저장한다.
                     Calendar c = Calendar.getInstance();
-                    c.add(Calendar.HOUR, 9);
                     Date d = c.getTime();
                     // Date객체에 저장된 시간을 일정한 포맷으로 출력되도록하는 SimpleDateFormat을 선언하고 포맷을 설정한다.
                     @SuppressLint("SimpleDateFormat") SimpleDateFormat form = new SimpleDateFormat("yyyy-MM-dd");
