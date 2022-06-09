@@ -59,7 +59,7 @@ public class ReserveActivity extends AppCompatActivity {
         scheduleList.setHasFixedSize(true);
 
         // RecyclerView의 값을 엮어줄 ScheduleAdapter를 선언하고 RecyclerView의 Adapter로 설정한다.
-        ScheduleAdapter mAdapter = new ScheduleAdapter(schedules, movie.getTitle());
+        ScheduleAdapter mAdapter = new ScheduleAdapter(schedules);
         scheduleList.setAdapter(mAdapter);
 
         // RecyclerView의 item을 클릭했을 때 기재된 onClickListener를 실행한다.
