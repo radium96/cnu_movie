@@ -35,7 +35,7 @@ public class QueryTask extends AsyncTask<String, Integer, String> {
             // Spring서버가 연결되어있는 URL을 설정한다.
             // 해당 주소는 ngrok이라는 터널링 프로그램으로 생성된 주소로 열려있는 pc의 localhost:10000으로 연결된다.
             // ngrok의 정책상 서버를 열 때 마다 주소 앞 최상단 4글자를 변경해줘야 하므로 데모환경에서는 주소값이 변경될 수 있다.
-            URL url = new URL("https://f28d-122-34-166-172.jp.ngrok.io/"+endPoint);
+            URL url = new URL("https://4008-122-34-166-172.jp.ngrok.io/"+endPoint);
             // url의 http환경으로 접속을 요청한다.
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             // 접속의 환경설정을 진행한다.
