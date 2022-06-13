@@ -124,7 +124,7 @@ public class AdminActivity extends AppCompatActivity {
         results.clear();
         try {
             // Join질의문에 대한 쿼리를 작성한다.
-            String query = "select C.name \"예약자 이름\", C.sex \"예약자 성\", C.cid \"예약자 id\", T.id \"티켓 id\", T.status \"티켓 상태\"\n" +
+            String query = "select C.name \"예매자 이름\", C.sex \"예매자 성\", C.cid \"예매자 id\", T.id \"티켓 id\", T.status \"티켓 상태\"\n" +
                     "from customer C inner join ticketing T\n" +
                     "on C.cid = t.cid\n" +
                     "order by C.cid";
@@ -158,8 +158,8 @@ public class AdminActivity extends AppCompatActivity {
         results.clear();
         try {
             // Grouping질의문에 대한 쿼리를 작성한다.
-            String query = "select decode(grouping(sid), 1, '전체 예약 수', sid) as \"일정 id\", \n" +
-                    "decode(grouping(name), 1, '해당 일정 예약 수', name) as \"예약자 이름\", count(*) \"예약 횟수\"\n" +
+            String query = "select decode(grouping(sid), 1, '전체 예매 수', sid) as \"일정 id\", \n" +
+                    "decode(grouping(name), 1, '전체 예매자', name) as \"예매자 이름\", count(*) \"예매 횟수\"\n" +
                     "from ticketing T, customer C\n" +
                     "where T.cid = C.cid\n" +
                     "group by rollup (sid, name)";
@@ -193,7 +193,7 @@ public class AdminActivity extends AppCompatActivity {
         results.clear();
         try {
             // Window질의문에 대한 쿼리를 작성한다.
-            String query = "select cid \"고객 id\", count(*) \"예약 횟수\", rank() over (order by count(*) desc) \"예약 횟수 순위\"\n" +
+            String query = "select cid \"고객 id\", count(*) \"예매 횟수\", rank() over (order by count(*) desc) \"예매 횟수 순위\"\n" +
                     "from ticketing\n" +
                     "group by cid";
             // 쿼리를 view에 출력한다.

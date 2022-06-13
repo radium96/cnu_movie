@@ -448,9 +448,9 @@ public class AndroidController {
             while (rset.next()){
                 //JSONObject에 ResultSet에 저장된 값에서 사용자의 정보를 받아와 저장한다.
                 JSONObject jo = new JSONObject();
-                jo.put("예약자 이름", rset.getString("예약자 이름"));
-                jo.put("예약자 성", rset.getString("예약자 성"));
-                jo.put("예약자 id", rset.getString("예약자 id"));
+                jo.put("예약자 이름", rset.getString("예매자 이름"));
+                jo.put("예약자 성", rset.getString("예매자 성"));
+                jo.put("예약자 id", rset.getString("예매자 id"));
                 jo.put("티켓 id", rset.getString("티켓 id"));
                 jo.put("티켓 상태", rset.getString("티켓 상태"));
                 // 필요한 값이 모두 삽입된 JSONObject를 JSONArray에 추가한다.
@@ -501,8 +501,8 @@ public class AndroidController {
                 //JSONObject에 ResultSet에 저장된 값에서 사용자의 정보를 받아와 저장한다.
                 JSONObject jo = new JSONObject();
                 jo.put("일정 id", rset.getString("일정 id"));
-                jo.put("예약자 이름", rset.getString("예약자 이름"));
-                jo.put("cnt", rset.getString("예약 횟수"));
+                jo.put("예약자 이름", rset.getString("예매자 이름"));
+                jo.put("cnt", rset.getString("예매 횟수"));
                 // 필요한 값이 모두 삽입된 JSONObject를 JSONArray에 추가한다.
                 ja.put(jo);
             }
@@ -551,8 +551,8 @@ public class AndroidController {
                 //JSONObject에 ResultSet에 저장된 값에서 사용자의 정보를 받아와 저장한다.
                 JSONObject jo = new JSONObject();
                 jo.put("고객 id", rset.getString("고객 id"));
-                jo.put("예약 횟수", rset.getString("예약 횟수"));
-                jo.put("예약 횟수 순위", rset.getString("예약 횟수 순위"));
+                jo.put("예약 횟수", rset.getString("예매 횟수"));
+                jo.put("예약 횟수 순위", rset.getString("예매 횟수 순위"));
                 // 필요한 값이 모두 삽입된 JSONObject를 JSONArray에 추가한다.
                 ja.put(jo);
             }
